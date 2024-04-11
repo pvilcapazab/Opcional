@@ -1,19 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Personas</title>
+    <style>
+        body {
+            background-color: #0b00a0f6;
+            color: #ffffff;
+        }
+    </style>
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
-    </div>
-</body>
+    <h1>Listado de Personas (Inventadas)</h1>
 
+    {% for persona in personas %}
+        <li>ID: {{ persona.id }} - Nombre: {{ persona.nombre }} {{ persona.apellidos }} - Cumpleaños: {{ persona.cumpleaños }} - Gastos {{ persona.gastos }}</li>
+    {% endfor %}
+    <p>TOTAL GASTADO: S/{{ total }}</p>
+
+    <img src="https://imagenes.20minutos.es/files/image_640_360/uploads/imagenes/2021/04/22/el-perro-picado-por-una-abeja.jpeg" alt="">
+</body>
 </html>
